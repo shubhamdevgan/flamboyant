@@ -1,0 +1,61 @@
+<html>
+    {% load static %} 
+    <head>
+    <title>flamboyant</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="/static/projects/css/materialize.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+    
+$(document).ready(function() {
+    $('#delete').hide(); 
+   
+      var boxes = $(' input[type=checkbox]').on('change', function() {
+       var flag = boxes.filter(':checked').length > 0;
+   
+       $('#delete').toggle(flag);
+     });
+   });
+    </script>
+    </head>
+    <body>
+        <p>Dear {{request.user.first_name}},Here is list of Projects added by you</p>
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li >{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <form method='post' action="{% url 'projects:ProjectDelete'%}" >
+        {% csrf_token %}
+            <table class="highlight" >
+            <thead>
+            <tr>
+                <th>Project Name</th>
+            </tr>
+        </thead>
+        <tbody>
+                {% for x in project_list %}
+                <tr >
+                  <td >
+                                <label>
+                                <input type="checkbox" name="checks[]" value="{{x.id}}"/>
+                                <span><a href= '{% url "projects:ProjectDetail" Pid=x.id %}' >{{x.project_name}}</a><br></span>
+                                </label>
+                        
+                    </td>
+                </tr>
+                {%endfor%}        
+            
+        </tbody>
+        </table>
+        
+        <input class="waves-effect waves-light btn-small" type='submit' value='Delete' id='delete' >
+        <br>
+        </form>
+        <a class="waves-effect waves-light btn-small" href="{% url 'profiles:profile' %}">Back</a>
+              
+</body>
+    
+</html>

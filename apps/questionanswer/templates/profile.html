@@ -1,0 +1,28 @@
+<html><head>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="/static/projects/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="/static/projects/js/materialize.min.js"></script>
+            
+</head>
+    <body>
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            Welcome bro
+            {{ user.first_name }}<br><br>
+            <a class="waves-effect waves-light btn-small" href="{%url 'profiles:Editprofile' %}">Edit Profile</a><br><br>
+            <a class="waves-effect waves-light btn-small" href="{% url 'projects:AddProject' %}">Add New Project</a><br><br>
+            <a class="waves-effect waves-light btn-small" href="{% url 'projects:ProjectList' %}">View Your Projects</a><br><br>
+            <a class="waves-effect waves-light btn-small" href="{% url 'wallet:walletHome' %}">Wallet</a><br><br>
+            <a class="waves-effect waves-light btn-small" href="{% url 'profiles:Logout' %}">Logout</a><br><br>
+            {% if messages %}
+            <ul>
+            {% for message in messages %}
+            <li >{{ message }}</li>
+            {% endfor %}
+            </ul>
+            {% endif %}
+        </form>
+    </body>
+</html>

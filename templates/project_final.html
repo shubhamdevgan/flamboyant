@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+{% load notification_tags %}
+
+<html lang="en"><head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script>
+        
+    $(document).ready(function() {
+        $('#delete').hide(); 
+       
+          var boxes = $(' input[type=checkbox]').on('change', function() {
+           var flag = boxes.filter(':checked').length > 0;
+       
+           $('#delete').toggle(flag);
+         });
+       });
+        </script>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link rel="icon" type="image/png" href="/static/profiles/images/icons/favicon.ico"/>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="/static/Table_Fixed_Header/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="/static/Table_Fixed_Header/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--=============================================/static/Table_Fixed_Header/==================================================-->
+        <link rel="stylesheet" type="text/css" href="/static/Table_Fixed_Header/vendor/animate/animate.css">
+    <!--=============================================/static/Table_Fixed_Header/==================================================-->
+        <link rel="stylesheet" type="text/css" href="/static/Table_Fixed_Header/vendor/select2/select2.min.css">
+    <!--=============================================/static/Table_Fixed_Header/==================================================-->
+        <link rel="stylesheet" type="text/css" href="/static/Table_Fixed_Header/vendor/perfect-scrollbar/perfect-scrollbar.css">
+    <!--=============================================/static/Table_Fixed_Header/==================================================-->
+        <link rel="stylesheet" type="text/css" href="/static/Table_Fixed_Header/css/util.css">
+        <link rel="stylesheet" type="text/css" href="/static/Table_Fixed_Header/css/main.css">   
+    <link href="/static/index_files/css.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/index_files/style.css">
+
+    <link rel="stylesheet" href="/static/index_files/bootstrap.css">
+    <link rel="stylesheet" href="/static/index_files/magnific-popup.css">
+    <link rel="stylesheet" href="/static/index_files/jquery-ui.css">
+    <link rel="stylesheet" href="/static/index_files/owl.css">
+    <link rel="stylesheet" href="/static/index_files/owl_002.css">
+
+    <link rel="stylesheet" href="/static/index_files/bootstrap-datepicker.css">
+
+    <link rel="stylesheet" href="/static/index_files/flaticon.css">
+
+    <link rel="stylesheet" href="/static/index_files/aos.css">
+
+    <link rel="stylesheet" href="/static/index_files/style_002.css">
+    <link rel="stylesheet" href="/static/fontawesome-free-5.8.1-web/css/all.css">
+    <script>
+        function changeClass(){
+            $("#classtochange").attr("class", "fas fa-bell fa-2x");
+        }
+        function Demo()
+        {$.ajax({ // create an AJAX call...
+            url: "{% url 'notification:StatusChange'%}",
+            
+        });}
+    </script>
+    
+        </head>
+        <header class="header_area navbar_fixed">
+                <div class="main_menu">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <div class="container box_1620">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <a class="navbar-brand logo_h" href="{%url 'projects:AllProjects'%}"><img src="/static/profiles/logo1.png" alt=""></a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                                <ul class="nav navbar-nav menu_nav ml-auto">
+                                    <li class="nav-item active" style="margin-right: 31px;"><a class="nav-link" href="{% url 'projects:AllProjects' %}"><i class="fas fa-home fa-2x"></i></a></li> 
+                                        {% if request.user.is_authenticated %}
+                                        {% if request.user|has_unread_notif %}
+                                        <li class="nav-item submenu dropdown "style="margin-right: 31px;">
+                                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                                <i id='classtochange' onclick="Demo();changeClass()" class="fas fa-bell fa-2x notification" style="position: relative;"></i></a>
+                                                <ul class="dropdown-menu"style="max-height: 250px;overflow-y: auto;">
+                                                    {%for notify in notification%}
+                                                    <li class="nav-item"><a class="nav-link" >{{notify.notification_content}}</a></li>
+                                                    {%endfor%}
+                                        {% else %}
+                                        <li class="nav-item submenu dropdown "style="margin-right: 31px;">
+                                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                                <i id='classtochange' class="fas fa-bell fa-2x" style="position: relative;"></i></a>
+                                                <ul class="dropdown-menu"style="max-height: 250px;overflow-y: auto;">
+                                                    {%for notify in notification%}
+                                                    <li class="nav-item"><a class="nav-link" >{{notify.notification_content}}</a></li>
+                                                    {%endfor%}
+                                       
+                                        {% endif %}
+                                        </a>
+                                          </li>{% endif %}
+    
+                                        </ul>
+                                    </li> 
+                                   
+                                    <li class="nav-item submenu dropdown "style="margin-right: 31px;">
+                                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="far fa-user fa-2x"></i></a>
+                                        <ul class="dropdown-menu">
+                                            <li class="nav-item"><a class="nav-link" href="{% url 'profiles:profile' %}">View Profile</a></li>
+                                            <li class="nav-item"><a class="nav-link" href="{% url 'projects:ProjectList' %}">View Your Projects</a></li>
+                                            <li class="nav-item"><a class="nav-link" href="{% url 'profiles:Editprofile' %}">Edit Profile</a></li>
+                                            <li class="nav-item"><a class="nav-link" href="#">Wallet</a></li>
+                                            <li class="nav-item"><a class="nav-link" href="{% url 'profiles:Logout' %}">Logout</a></li>
+    
+                                        </ul>
+                                    </li> 
+                                </ul>
+                            </div> 
+                        </div>
+                    
+                </div>
+            </header></div>
+      <h3 align='center'>   Projects Available</h3>
+
+        <div class="limiter">
+                <div class="container-table100">
+                    <div class="wrap-table100">
+                        <div class="table100 ver1 m-b-110">
+                            <div class="table100-head">
+                                <table>
+                                    <thead>
+                                        <tr class="row100 head">
+                                            <th class="cell100 column1">Project name</th>
+                                            <th class="cell100 column2">Budget</th>
+                                            <th class="cell100 column3">Skills</th>
+                                            <th class="cell100 column4">Time Frame</th>
+
+                                            
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                            
+                            <div class="table100-body js-pscroll">
+                                <table>
+                                    <tbody>
+                                            {% for x in project_list %}
+                                        <tr class="row100 body">
+                                            <td class="cell100 column1"><a href= '{% url "projects:ProjectDetail" Pid=x.id %}' >{{x.project_name}}</a></td>
+                                            <td class="cell100 column2">{{ x.budget }}</td>
+                                            <td class="cell100 column3">{{ x.skills }}</td>
+                                            <td class="cell100 column4">{{ x.time_frame }}</td>
+
+
+
+                                        </tr>
+                                            {%endfor%}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                                </div>
+                    </div>
+                </div>
+            </div>
+        
+
+  <script src="index_files/jquery-3.js"></script>
+  <script src="index_files/jquery-migrate-3.js"></script>
+  <script src="index_files/jquery-ui.js"></script>
+  <script src="index_files/popper.js"></script>
+  <script src="index_files/bootstrap.js"></script>
+  <script src="index_files/owl.js"></script>
+  <script src="index_files/jquery_003.js"></script>
+  <script src="index_files/jquery_002.js"></script>
+  <script src="index_files/jquery.js"></script>
+  <script src="index_files/bootstrap-datepicker.js"></script>
+  <script src="index_files/aos.js"></script>
+
+  <script src="index_files/typed.js"></script>
+            <script>
+            var typed = new Typed('.typed-words', {
+            strings: ["Web Apps"," WordPress"," Mobile Apps"],
+            typeSpeed: 80,
+            backSpeed: 80,
+            backDelay: 4000,
+            startDelay: 1000,
+            loop: true,
+            showCursor: true
+            });
+            </script>
+
+  <script src="/static/Table_Fixed_Header/index_files/main.js"></script>
+    
+  <!--===============================================================================================-->	
+	<script src="/static/Table_Fixed_Header/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+        <script src="/static/Table_Fixed_Header/vendor/bootstrap/js/popper.js"></script>
+        <script src="/static/Table_Fixed_Header/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--=============/static/Table_Fixed_Header/==================================================================================-->
+        <script src="/static/Table_Fixed_Header/vendor/select2/select2.min.js"></script>
+    <!--=============/static/Table_Fixed_Header/==================================================================================-->
+        <script src="/static/Table_Fixed_Header/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+        <script>
+            $('.js-pscroll').each(function(){
+                var ps = new PerfectScrollbar(this);
+    
+                $(window).on('resize', function(){
+                    ps.update();
+                })
+            });
+                
+            
+        </script>
+    <!--===============================================================================================-->
+        <script src="/static/Table_Fixed_Header/js/main.js"></script>
+    
+
+</body></html>

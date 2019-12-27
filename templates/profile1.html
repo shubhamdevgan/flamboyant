@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="icon" type="image/png" href="/static/profiles/images/icons/favicon.ico"/>
+        <title>UserProfile</title>
+				<!-- Bootstrap CSS -->
+				<link rel="stylesheet" href="/static/toast.css">
+        <link rel="stylesheet" href="/static/profilefiles/font-awesome.css">
+        <link rel="stylesheet" href="/static/profilefiles/owl.css">
+        <link rel="stylesheet" href="/static/profilefiles/simpleLightbox.css">
+        <link rel="stylesheet" href="/static/profilefiles/bootstrap.css">
+        <link rel="stylesheet" href="/static/profilefiles/style.css">
+        <link rel="stylesheet" href="/static/profilefiles/nice-select.css">
+        <link rel="stylesheet" href="/static/profilefiles/animate.css">
+        <link rel="stylesheet" href="/static/profilefiles/magnific-popup.css">
+        <link rel="stylesheet" href="/static/profilefiles/flaticon.css">
+        <!-- main css -->
+        <link rel="stylesheet" href="/static/profilefiles/style_0021.css">
+		<link rel="stylesheet" href="/static/profilefiles/responsive.css">
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="/static/Table_Fixed_Header/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="/static/Table_Fixed_Header/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--=============================================/static/Table_Fixed_Header/==================================================-->
+        <link rel="stylesheet" type="text/css" href="/static/Table_Fixed_Header/vendor/animate/animate.css">
+    <!--=============================================/static/Table_Fixed_Header/==================================================-->
+        <link rel="stylesheet" type="text/css" href="/static/Table_Fixed_Header/vendor/select2/select2.min.css">
+    <!--=============================================/static/Table_Fixed_Header/==================================================-->
+        <link rel="stylesheet" type="text/css" href="/static/Table_Fixed_Header/vendor/perfect-scrollbar/perfect-scrollbar.css">
+    <!--=============================================/static/Table_Fixed_Header/==================================================-->
+        <link rel="stylesheet" type="text/css" href="/static/Table_Fixed_Header/css/util.css">
+        <link rel="stylesheet" type="text/css" href="/static/Table_Fixed_Header/css/main.css">   
+    <link href="/static/index_files/css.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/index_files/style.css">
+
+    <link rel="stylesheet" href="/static/index_files/bootstrap.css">
+    <link rel="stylesheet" href="/static/index_files/magnific-popup.css">
+    <link rel="stylesheet" href="/static/index_files/jquery-ui.css">
+    <link rel="stylesheet" href="/static/index_files/owl.css">
+    <link rel="stylesheet" href="/static/index_files/owl_002.css">
+
+    <link rel="stylesheet" href="/static/index_files/bootstrap-datepicker.css">
+
+    <link rel="stylesheet" href="/static/index_files/flaticon.css">
+
+    <link rel="stylesheet" href="/static/index_files/aos.css">
+
+    <link rel="stylesheet" href="/static/index_files/style_002.css">
+    
+
+    </head>
+    <body>
+        
+			<body data-aos-easing="slide" data-aos-duration="800" data-aos-delay="0">
+  
+					<div class="site-wrap">
+				  
+					  <div class="site-mobile-menu">
+						<div class="site-mobile-menu-header">
+						  <div class="site-mobile-menu-close mt-3">
+							<span class="icon-close2 js-menu-toggle"></span>
+						  </div>
+						</div>
+						<div class="site-mobile-menu-body"><ul class="site-nav-wrap">
+								  <li class="active"></li>
+								  <li class="has-children"><span class="arrow-collapse collapsed" data-toggle="collapse" data-target="#collapseItem0"></span>
+									<a href="">Menu</a>
+									<ul class="collapse" id="collapseItem0">
+									  <li><a href="services.html">login</a></li>
+									  <li><a href="services.html">Register</a></li>
+									</ul>
+								  </li>
+								</ul></div>
+					  </div>
+					 
+						  <header class="site-navbar py-4 bg-white" role="banner">
+				  
+						<div class="container">
+						  <div class="row align-items-center">
+							
+							<div class="col-11 col-xl-2">
+							  <h1 class="mb-0 site-logo"><a href="{% url 'projects:AllProjects' %}" class="text-black h2 mb-0"><img src="/static/profiles/logo1.png" alt="Flamboyant"></a></h1>
+							</div>
+							<div class="col-12 col-md-10 d-none d-xl-block">
+							  <nav class="site-navigation position-relative text-right" role="navigation">
+				  
+								<ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
+								  <a class="nav-link" href="{% url 'projects:AllProjects' %}">Home</a>
+								  <li class="active"></li>
+								  <li class="has-children">
+				  
+									<a>Profile</a>
+									<ul class="dropdown">
+									  <li><a class="nav-link" href="{% url 'profiles:profile' %}">View Profile</a></li>
+									  <li><a class="nav-link" href="{% url 'projects:ProjectList' %}">View Your Projects</a></li>
+									  <li><a class="nav-link" href="{% url 'profiles:Editprofile' %}">Edit Profile</a></li>
+									  <li><a class="nav-link" href="services.html">Wallet</a></li>
+									  <li><a class="nav-link" href="{% url 'profiles:Logout' %}">Logout</a></li>
+									</ul>
+								  </li>
+								</ul>
+							  </nav>
+							</div>
+				  
+				  
+							<div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+				  
+							</div>
+				  
+						  </div>
+						</header></div>
+        <!--================Header Menu Area =================-->
+        
+				<!--================Home Banner Area =================-->
+				
+
+        <section class="home_banner_area">
+           	<div class="container box_1620">
+           		<div class="banner_inner d-flex align-items-center">
+					<div class="banner_content">
+						<div class="media">
+							<div class="d-flex">
+								<img src="index_files/personal.jpg" alt="" width="100" height="100">
+							</div>
+							<div class="media-body">
+								<div class="personal_text">
+									
+									<h3>{{ profile.first_name }} {{profile.last_name}}</h3>
+									Area Of Expertise :<h4>{{profile.Area_of_Interest}}</h4>
+									<p>{{profile.Something_about_yourself}}</p>
+									<ul class="list basic_info">
+										<li>User since : {{ profile.profile_created_on}}</a></li>
+										<li>Contact No: 44 (012) 6954 783</a></li>
+										<li>E-mail : {{profile.email_id}}</a></li>
+										<li>City : {{profile.city}}</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+            </div>
+        </section>
+        <!--================End Home Banner Area =================-->
+        
+        <!--================Welcome Area =================-->
+		
+        <!--================End Welcome Area =================-->
+        
+		<!--================My Tabs Area =================-->
+		
+        <section class="mytabs_area p_120">
+        	<div class="container">
+        		<div class="tabs_inner">
+					<ul class="nav nav-tabs" id="myTab" role="tablist">
+						<li class="nav-item">
+							<a class="nav-link active" id="home-tab" data-toggle="tab"  role="tab" aria-controls="home" aria-selected="true">Previous Projects</a>
+						</li>
+					</ul>
+					{% for x in previous_projects %}
+					<div class="tab-content" id="myTabContent">
+						<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+							<ul class="list">
+								<li>
+									<span></span>
+									<div class="media">
+										<div class="media-body">
+											<h4>{{ x }}</h4>
+										</div>
+									</div>
+								</li>
+								
+							</ul>
+						</div>
+						{%endfor%}
+					</div>
+        		</div>
+        	</div>
+        </section>
+        <!--================End My Tabs Area =================-->
+        
+        <!--================Feature Area =================-->
+        <!--================End Feature Area =================-->
+        
+        <!--================Home Gallery Area =================-->
+
+        <!--================End Footer Area =================-->
+        
+        
+        
+        
+        
+        
+        <!-- Optional JavaScript -->
+				<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+				<script src="/static/toast.js"></script>
+        <script src="/static/profilefiles/jquery-3.js"></script>
+        <script src="/static/profilefiles/popper.js"></script>
+        <script src="/static/profilefiles/bootstrap.js"></script>
+        <script src="/static/profilefiles/stellar.js"></script>
+        <script src="/static/profilefiles/simpleLightbox.js"></script>
+        <script src="/static/profilefiles/jquery.js"></script>
+        <script src="/static/profilefiles/imagesloaded.js"></script>
+        <script src="/static/profilefiles/isotope.js"></script>
+        <script src="/static/profilefiles/owl.js"></script>
+        <script src="/static/profilefiles/jquery_004.js"></script>
+        <script src="/static/profilefiles/jquery_002.js"></script>
+        <script src="/static/profilefiles/jquery_005.js"></script>
+        <script src="/static/profilefiles/jquery_003.js"></script>
+        <script src="/static/profilefiles/mail-script.js"></script>
+        <script src="/static/profilefiles/theme.js"></script>
+    
+</body></html>

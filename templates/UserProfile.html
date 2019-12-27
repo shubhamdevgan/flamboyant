@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+{% load notification_tags %}
+
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="icon" type="image/png" href="/static/profiles/images/icons/favicon.ico"/>
+        <title>UserProfile</title>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="/static/Userprofile/index_files/bootstrap.css">
+        <link rel="stylesheet" href="/static/Userprofile/index_files/style.css">
+        <link rel="stylesheet" href="/static/Userprofile/index_files/font-awesome.css">
+        <link rel="stylesheet" href="/static/Userprofile/index_files/owl.css">
+        <link rel="stylesheet" href="/static/Userprofile/index_files/simpleLightbox.css">
+        <link rel="stylesheet" href="/static/Userprofile/index_files/nice-select.css">
+        <link rel="stylesheet" href="/static/Userprofile/index_files/animate.css">
+        <link rel="stylesheet" href="/static/Userprofile/index_files/magnific-popup.css">
+        <link rel="stylesheet" href="/static/Userprofile/index_files/flaticon.css">
+        <link rel="stylesheet" href="/static/Userprofile/index_files/style_002.css">
+        <link rel="stylesheet" href="/static/Userprofile/index_files/responsive.css">
+        <link rel="stylesheet" href="/static/fontawesome-free-5.8.1-web/css/all.css">
+<script>
+	function changeClass(){
+		$("#classtochange").attr("class", "fas fa-bell fa-2x");
+	}
+    function Demo()
+    {$.ajax({ // create an AJAX call...
+        url: "{% url 'notification:StatusChange'%}",
+        
+    });}
+</script>
+
+    </head>
+    <body >
+		
+
+        <!--================Header Menu Area =================-->
+        <header class="header_area navbar_fixed">
+            <div class="main_menu">
+            	<nav class="navbar navbar-expand-lg navbar-light">
+					<div class="container box_1620">
+						<!-- Brand and toggle get grouped for better mobile display -->
+						<a class="navbar-brand logo_h" href="{%url 'projects:AllProjects'%}"><img src="/static/profiles/logo1.png" alt=""></a>
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<!-- Collect the nav links, forms, and other content for toggling -->
+						<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+							<ul class="nav navbar-nav menu_nav ml-auto">
+                                <li class="nav-item active"><a class="nav-link" href="{% url 'projects:AllProjects' %}"><i class="fas fa-home fa-2x"></i></a></li> 
+                                    {% if request.user.is_authenticated %}
+                                    {% if request.user|has_unread_notif %}
+                                    <li class="nav-item submenu dropdown">
+                                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                            <i id='classtochange' onclick="Demo();changeClass()" class="fas fa-bell fa-2x notification" style="position: relative;"></i></a>
+                                            <ul class="dropdown-menu"style="max-height: 250px;overflow-y: auto;">
+                                                {%for notify in notification%}
+                                                <li class="nav-item"><a class="nav-link" >{{notify.notification_content}}</a></li>
+                                                {%endfor%}
+                                    {% else %}
+                                    <li class="nav-item submenu dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                            <i id='classtochange' class="fas fa-bell fa-2x" style="position: relative;"></i></a>
+                                            <ul class="dropdown-menu"style="max-height: 250px;overflow-y: auto;">
+                                                {%for notify in notification%}
+                                                <li class="nav-item"><a class="nav-link" >{{notify.notification_content}}</a></li>
+                                                {%endfor%}
+                                   
+                                    {% endif %}
+                                    </a>
+                                      </li>{% endif %}
+
+									</ul>
+								</li> 
+                               
+								<li class="nav-item submenu dropdown">
+									<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="far fa-user fa-2x"></i></a>
+									<ul class="dropdown-menu">
+										<li class="nav-item"><a class="nav-link" href="{% url 'profiles:profile' %}">View Profile</a></li>
+										<li class="nav-item"><a class="nav-link" href="{% url 'projects:ProjectList' %}">View Your Projects</a></li>
+										<li class="nav-item"><a class="nav-link" href="{% url 'profiles:Editprofile' %}">Edit Profile</a></li>
+										<li class="nav-item"><a class="nav-link" href="#">Wallet</a></li>
+										<li class="nav-item"><a class="nav-link" href="{% url 'profiles:Logout' %}">Logout</a></li>
+
+									</ul>
+								</li> 
+							</ul>
+						</div> 
+					</div>
+            	
+            </div>
+        </header>        <!--================Header Menu Area =================-->
+        
+        <!--================Home Banner Area =================-->
+        <section class="home_banner_area">
+			<div class="container box_1620">
+				<div class="banner_inner d-flex align-items-center">
+				 <div class="banner_content">
+					 <div class="media">
+						 <div class="d-flex">
+							 <img src="/{{profile.profile_dp.url}} " alt="NOPIC" width="150" height="120">
+						 </div>
+						 <div class="media-body">
+							 <div class="personal_text">
+								 
+								 <h3>{{ profile.first_name }} {{profile.last_name}}</h3>
+								 Area Of Expertise :<h4>{{profile.Area_of_Interest}}</h4>
+								 <p>{{profile.Something_about_yourself}}</p>
+								 <ul class="list basic_info">
+									 <li>User since : {{ profile.profile_created_on}}</a></li>
+							
+									 <li>E-mail : {{profile.email_id}}</a></li>
+									 <li>City : {{profile.city}}</a></li>
+								 </ul>
+							 </div>
+						 </div>
+					 </div>
+				 </div>
+			 </div>
+		 </div>
+	 </section>
+        <!--================End Home Banner Area =================-->
+        
+        <!--================Welcome Area =================-->
+		
+        <!--================End Welcome Area =================-->
+        
+        <!--================My Tabs Area =================-->
+        
+        <section class="mytabs_area p_120">
+        	<div class="container">
+        		<div class="tabs_inner">
+					<ul class="nav nav-tabs" id="myTab" role="tablist">
+						<li class="nav-item">
+							<a class="nav-link active" id="home-tab" data-toggle="tab"  role="tab" aria-controls="home" aria-selected="true">Previous Projects</a>
+						</li>
+					</ul>
+					{% for x in previous_projects %}
+					<div class="tab-content" id="myTabContent">
+						<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+							<ul class="list">
+								<li>
+									<span></span>
+									<div class="media">
+										<div class="media-body">
+											<h4>{{ x }}</h4>
+										</div>
+									</div>
+								</li>
+								
+							</ul>
+						</div>
+						{%endfor%}
+					</div>
+        		</div>
+        	</div>
+        </section>
+        <!--================End My Tabs Area =================-->
+        
+        <!--================Feature Area =================-->
+        <!--================End Feature Area =================-->
+        
+        <!--================Home Gallery Area =================-->
+
+        <!--================End Footer Area =================-->
+        
+        
+        
+        
+        
+        
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="/static/Userprofile/index_files/jquery-3.js"></script>
+        <script src="/static/Userprofile/index_files/popper.js"></script>
+        <script src="/static/Userprofile/index_files/bootstrap.js"></script>
+        <script src="/static/Userprofile/index_files/stellar.js"></script>
+        <script src="/static/Userprofile/index_files/simpleLightbox.js"></script>
+        <script src="/static/Userprofile/index_files/jquery.js"></script>
+        <script src="/static/Userprofile/index_files/imagesloaded.js"></script>
+        <script src="/static/Userprofile/index_files/isotope.js"></script>
+        <script src="/static/Userprofile/index_files/owl.js"></script>
+        <script src="/static/Userprofile/index_files/jquery_004.js"></script>
+        <script src="/static/Userprofile/index_files/jquery_002.js"></script>
+        <script src="/static/Userprofile/index_files/jquery_005.js"></script>
+        <script src="/static/Userprofile/index_files/jquery_003.js"></script>
+        <script src="/static/Userprofile/index_files/mail-script.js"></script>
+        <script src="/static/Userprofile/index_files/theme.js"></script>
+    
+</body></html>

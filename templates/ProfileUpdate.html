@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+        {% load custom_class %}
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+    <link rel="icon" type="image/png" href="/static/profiles/images/icons/favicon.ico"/>
+    <title>UserProfile</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/static/profilefiles/font-awesome.css">
+    <link rel="stylesheet" href="/static/profilefiles/owl.css">
+    <link rel="stylesheet" href="/static/profilefiles/simpleLightbox.css">
+    <link rel="stylesheet" href="/static/profilefiles/bootstrap.css">
+    <link rel="stylesheet" href="/static/profilefiles/style.css">
+    <link rel="stylesheet" href="/static/profilefiles/nice-select.css">
+    <link rel="stylesheet" href="/static/profilefiles/animate.css">
+    <link rel="stylesheet" href="/static/profilefiles/magnific-popup.css">
+    <link rel="stylesheet" href="/static/profilefiles/flaticon.css">
+    <!-- main css -->
+    <link rel="stylesheet" href="/static/profilefiles/style_002.css">
+    <link rel="stylesheet" href="/static/profilefiles/responsive.css">
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" type="text/css" href="/static/Table_Fixed_Header/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/static/Table_Fixed_Header/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--=============================================/static/Table_Fixed_Header/==================================================-->
+    <link rel="stylesheet" type="text/css" href="/static/Table_Fixed_Header/vendor/animate/animate.css">
+<!--=============================================/static/Table_Fixed_Header/==================================================-->
+    <link rel="stylesheet" type="text/css" href="/static/Table_Fixed_Header/vendor/select2/select2.min.css">
+<!--=============================================/static/Table_Fixed_Header/==================================================-->
+    <link rel="stylesheet" type="text/css" href="/static/Table_Fixed_Header/vendor/perfect-scrollbar/perfect-scrollbar.css">
+<!--=============================================/static/Table_Fixed_Header/==================================================-->
+    <link rel="stylesheet" type="text/css" href="/static/Table_Fixed_Header/css/util.css">
+    <link rel="stylesheet" type="text/css" href="/static/Table_Fixed_Header/css/main.css">   
+<link href="/static/index_files/css.css" rel="stylesheet">
+<link rel="stylesheet" href="/static/index_files/style.css">
+
+<link rel="stylesheet" href="/static/index_files/bootstrap.css">
+<link rel="stylesheet" href="/static/index_files/magnific-popup.css">
+<link rel="stylesheet" href="/static/index_files/jquery-ui.css">
+<link rel="stylesheet" href="/static/index_files/owl.css">
+<link rel="stylesheet" href="/static/index_files/owl_002.css">
+
+<link rel="stylesheet" href="/static/index_files/bootstrap-datepicker.css">
+
+<link rel="stylesheet" href="/static/index_files/flaticon.css">
+
+<link rel="stylesheet" href="/static/index_files/aos.css">
+
+<link rel="stylesheet" href="/static/index_files/style_002.css">
+
+    <!-- Title Page-->
+    <title>Profile Updation</title>
+    <link rel="icon" type="image/png" href="/static/profiles/images/icons/favicon.ico"/>
+
+    <!-- Icons font CSS-->
+    <link href="/static/register/index_files/material-design-iconic-font.css" rel="stylesheet" media="all">
+    <link href="/static/register/index_files/font-awesome.css" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link href="/static/register/index_files/css.css" rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link href="/static/register/index_files/select2.css" rel="stylesheet" media="all">
+    <link href="/static/register/index_files/daterangepicker.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="/static/register/index_files/main1.css" rel="stylesheet" media="all">
+</head>
+<body>	<body data-aos-easing="slide" data-aos-duration="800" data-aos-delay="0">
+  
+        <div class="site-wrap">
+      
+          <div class="site-mobile-menu">
+            <div class="site-mobile-menu-header">
+              <div class="site-mobile-menu-close mt-3">
+                <span class="icon-close2 js-menu-toggle"></span>
+              </div>
+            </div>
+            <div class="site-mobile-menu-body"><ul class="site-nav-wrap">
+                      <li class="active"></li>
+                      <li class="has-children"><span class="arrow-collapse collapsed" data-toggle="collapse" data-target="#collapseItem0"></span>
+                        <a href="">Menu</a>
+                        <ul class="collapse" id="collapseItem0">
+                          <li><a href="services.html">login</a></li>
+                          <li><a href="services.html">Register</a></li>
+                        </ul>
+                      </li>
+                    </ul></div>
+          </div>
+         
+              <header class="site-navbar py-4 bg-white" role="banner">
+      
+            <div class="container">
+              <div class="row align-items-center">
+                
+                <div class="col-11 col-xl-2">
+                  <h1 class="mb-0 site-logo"><a href="{% url 'projects:AllProjects' %}" class="text-black h2 mb-0"><img src="/static/profiles/logo1.png" alt="Flamboyant"></a></h1>
+                </div>
+                <div class="col-12 col-md-10 d-none d-xl-block">
+                  <nav class="site-navigation position-relative text-right" role="navigation">
+      
+                    <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
+                      <a class="nav-link" href="{% url 'projects:AllProjects' %}">Home</a>
+                      <li class="active"></li>
+                      <li class="has-children">
+      
+                        <a>Profile</a>
+                        <ul class="dropdown">
+                          <li><a class="nav-link" href="{% url 'profiles:profile' %}">View Profile</a></li>
+                          <li><a class="nav-link" href="{% url 'projects:ProjectList' %}">View Your Projects</a></li>
+                          <li><a class="nav-link" href="{% url 'profiles:Editprofile' %}">Edit Profile</a></li>
+                          <li><a class="nav-link" href="services.html">Wallet</a></li>
+                          <li><a class="nav-link" href="{% url 'profiles:Logout' %}">Logout</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+      
+      
+                <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+      
+                </div>
+      
+              </div>
+            </header></div>
+                <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+        <div class="wrapper wrapper--w790">
+            <div class="card card-5">
+                <div class="card-heading">
+                    <h2 class="title">Fill Your Profile
+                    </h2>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="">
+                            {% csrf_token %}
+                            
+                            {% for field in form.hidden_fields %}
+                            {{ field }}
+                            {% endfor %}
+                            {% for fields in form.visible_fields%}
+                            <div class="form-row">
+                                <div class="name">{{fields.label_tag}}</div>
+                                <div class="value">
+                                    <div class="input-group">
+                                        {{fields|customcls:"input--style-5"}}
+                                    </div>
+                                </div>
+                            </div>
+                            {%endfor%}
+                        </div>
+                        <div><center>
+                            <button class="btn btn--radius-2 btn--red" type="submit">Submit</button></center>&gt;
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Jquery JS-->
+    <script src="/static/register/index_files/jquery.js"></script>
+    <!-- Vendor JS-->
+    <script src="/static/register/index_files/select2.js"></script>
+    <script src="/static/register/index_files/moment.js"></script>
+    <script src="/static/register/index_files/daterangepicker.js"></script>
+
+    <!-- Main JS-->
+    <script src="/static/register/sindex_files/global.js"></script>
+    <script src="/static/profilefiles/jquery-3.js"></script>
+    <script src="/static/profilefiles/popper.js"></script>
+    <script src="/static/profilefiles/bootstrap.js"></script>
+    <script src="/static/profilefiles/stellar.js"></script>
+    <script src="/static/profilefiles/simpleLightbox.js"></script>
+    <script src="/static/profilefiles/jquery.js"></script>
+    <script src="/static/profilefiles/imagesloaded.js"></script>
+    <script src="/static/profilefiles/isotope.js"></script>
+    <script src="/static/profilefiles/owl.js"></script>
+    <script src="/static/profilefiles/jquery_004.js"></script>
+    <script src="/static/profilefiles/jquery_002.js"></script>
+    <script src="/static/profilefiles/jquery_005.js"></script>
+    <script src="/static/profilefiles/jquery_003.js"></script>
+    <script src="/static/profilefiles/mail-script.js"></script>
+    <script src="/static/profilefiles/theme.js"></script>
+
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) --></html>
+<!-- end document-->

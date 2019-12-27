@@ -1,0 +1,23 @@
+<html>
+    <body>
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{error}}
+            {{ form }}
+            <br>
+            <br>
+            {% if messages %}
+            <ul>
+            {% for message in messages %}
+            <li >{{ message }}</li>
+            {% endfor %}
+            </ul>
+            {% endif %}
+            <br>
+            <br>
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+        <a href="{% url 'projects:ProjectList' %}">Back</a>
+    </body>
+</html>

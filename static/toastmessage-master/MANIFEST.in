@@ -1,0 +1,9 @@
+include README.rst
+include LISENSE.MIT
+include setup.cfg
+include MANIFEST.in
+recursive-include toastmessage/static/css *
+recursive-include toastmessage/static/js *
+recursive-include toastmessage/static/images/notify *
+recursive-include toastmessage/templates *
+recursive-include toastmessage/templatetags *
