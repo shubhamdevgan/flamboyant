@@ -1,3 +1,11 @@
-Django==2.1.4
+Django==2.1.5
+django-braces==1.13.0
+django-messages==0.5.3
+django-model-utils==3.1.2
+django-private-chat==0.2.2
+Pillow==5.4.1
 pkg-resources==0.0.0
-pytz==2018.7
+python-memcached==1.59
+pytz==2018.9
+six==1.12.0
+websockets==3.2
