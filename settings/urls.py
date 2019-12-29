@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from django_private_chat import urls as django_private_chat_urls
-
+from apps.profiles.views import HomeView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,7 +27,7 @@ urlpatterns = [
     path('feedback/',include(('apps.feedback.urls','feedback'))),
     path('bid/',include(('apps.Bid.urls','bid'))),
     path('QA/',include(('apps.questionanswer.urls','QA'))),
-    path('', include('django_private_chat.urls')),
+    path('', HomeView),
     path('notification/',include(('apps.notification.urls','notification')))
    # path('transactions/',include(('apps.Transactions.urls','transaction')))
 ]
